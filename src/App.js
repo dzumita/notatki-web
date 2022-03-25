@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import styled, { ThemeProvider } from 'styled-components';
+
+const uri = process.env.API_URI;
+const cache = new InMemoryCache();
+
+const client = new ApolloClient({ uri, cache, connectToDevTools: true });
 
 const Wrapper = styled.div`
   width: 100%;
@@ -30,10 +36,12 @@ const theme = {
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Routes />
-    </ThemeProvider>
+    <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Routes />
+      </ThemeProvider>
+    </ApolloProvider>
   );
 };
 

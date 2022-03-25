@@ -14,6 +14,7 @@ const Main = styled.main`
   color: ${props => props.theme.colors.foreground};
   padding: 2em;
   flex: 1;
+  overflow-y: scroll;
 `;
 
 const Layout = ({ children }) => {
