@@ -1,22 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-
-import styled, { ThemeProvider } from 'styled-components';
-
-const uri = process.env.API_URI;
-const cache = new InMemoryCache();
-
-const client = new ApolloClient({ uri, cache, connectToDevTools: true });
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-
-import GlobalStyle from '/components/GlobalStyle';
+import {
+  ApolloClient,
+  ApolloProvider,
+  createHttpLink,
+  InMemoryCache
+} from '@apollo/client';
+import { setContext } from 'apollo-link-context';
+import { ThemeProvider } from 'styled-components';
 
 import Routes from '/Routes';
+import GlobalStyle from '/components/GlobalStyle';
+
+const uri = process.env.API_URI;
+const httpLink = createHttpLink({ uri });
+const cache = new InMemoryCache();
+
+const authLink = setContext((_, { headers }) => {
+  return {
+    headers: {
+      ...headers,
+      authorization: localStorage.getItem('token') || ''
+    }
+  };
+});
 
 const theme = {
   colors: {
@@ -33,6 +40,20 @@ const theme = {
     yellow: '#f1fa8c'
   }
 };
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache,
+  resolvers: {},
+  connectToDevTools: true
+});
+
+const data = {
+  isLoggedIn: !!localStorage.getItem('token')
+};
+
+cache.writeData({ data });
+client.onResetStore(() => cache.writeData({ data }));
 
 const App = () => {
   return (
