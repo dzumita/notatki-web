@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useQuery, gql } from '@apollo/client';
 
 import Button from '../components/Button';
@@ -24,6 +25,14 @@ const GET_NOTES = gql`
   }
 `;
 
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+`;
+
 const Home = () => {
   const { data, loading, error, fetchMore } = useQuery(GET_NOTES);
 
@@ -31,8 +40,9 @@ const Home = () => {
   if (error) return <p>Error!</p>;
 
   return (
-    <React.Fragment>
+    <Wrapper>
       <NoteFeed notes={data.noteFeed.notes} />
+      
       {data.noteFeed.hasNextPage && (
         <Button
           onClick={() =>
@@ -59,7 +69,7 @@ const Home = () => {
           Load more
         </Button>
       )}
-    </React.Fragment>
+    </Wrapper>
   );
 };
 

@@ -5,24 +5,21 @@ import { Link } from 'react-router-dom';
 import Note from './Note';
 
 const NoteWrapper = styled.div`
+  padding: 1em;
   max-width: 800px;
-  margin: 0 auto;
-  margin-bottom: 2em;
-  padding-bottom: 2em;
-  border-bottom: 1px solid #f5f4f0;
   background: ${props => props.theme.colors.currentLine};
 `;
 
 const NoteFeed = ({ notes }) => {
   return (
-    <div>
+    <React.Fragment>
       {notes.map(note => (
         <NoteWrapper key={note.id}>
           <Note note={note} />
           <Link to={`note/${note.id}`}>Permalink</Link>
         </NoteWrapper>
       ))}
-    </div>
+    </React.Fragment>
   );
 };
 
