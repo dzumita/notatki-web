@@ -40,7 +40,7 @@ const theme = {
     yellow: '#f1fa8c'
   },
   border: {
-    radius: '30px'
+    radius: '12px'
   }
 };
 
