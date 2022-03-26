@@ -1,20 +1,22 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
+import { useHistory } from "react-router-dom";
 
 import IconLink from '../IconLink';
 
 import { Nav, NavList } from './styles';
 import { IS_LOGGED_IN } from './queries';
 
-const handleLogout = () => {
-  localStorage.removeItem('token');
-  client.resetStore();
-  client.writeData({ data: { isLoggedIn: false } });
-  props.history.push('/');
-};
+const Navigation = props => {
+  const history = useHistory();
+  const { data, client } = useQuery(IS_LOGGED_IN);
 
-const Navigation = () => {
-  const { data } = useQuery(IS_LOGGED_IN);
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    client.resetStore();
+    client.writeData({ data: { isLoggedIn: false } });
+    history.push('/');
+  };
 
   return (
     <Nav>
