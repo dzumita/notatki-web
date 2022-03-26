@@ -68,7 +68,7 @@ const Home = () => {
             })
           }
         >
-          🔃 Load more
+          Load more
         </Button>
       )}
     </Wrapper>
