@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import Link from '../Link';
+import IconLink from '../IconLink';
 
 import { Nav, NavList } from './styles';
 import { IS_LOGGED_IN } from './queries';
@@ -20,28 +20,28 @@ const Navigation = () => {
     <Nav>
       <NavList>
         <li>
-          <Link icon="🏠" to="/" alt="Home" />
+          <IconLink icon="🏠" to="/" alt="Home" />
         </li>
         <li>
-          <Link icon="📓" to="/notes" alt="Notes" />
+          <IconLink icon="📓" to="/notes" alt="Notes" />
         </li>
         <li>
-          <Link icon="🌟" to="/favorites" alt="Favorites" />
+          <IconLink icon="🌟" to="/favorites" alt="Favorites" />
         </li>
       </NavList>
 
       <NavList>
         {data.isLoggedIn ? (
           <li>
-            <Link onClick={handleLogout} icon="⬅️" alt="Log Out" />
+            <IconLink onClick={handleLogout} icon="⬅️" alt="Log Out" />
           </li>
         ) : (
           <React.Fragment>
             <li>
-              <Link to="/signin" icon="🚪" alt="Sign In" />
+              <IconLink to="/signin" icon="🚪" alt="Sign In" />
             </li>
             <li>
-              <Link to="/signup" icon="🔑" alt="Sign Up" />
+              <IconLink to="/signup" icon="🔑" alt="Sign Up" />
             </li>
           </React.Fragment>
         )}
