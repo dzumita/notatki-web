@@ -11,6 +11,9 @@ const StatusItem = ({ as }) => {
     case 'not note':
       status = '❎ Error! Note not found';
       break;
+    case 'error sign in':
+      status = '❎ Error signing in!';
+      break;
   }
 
   return <StyledStatusItem>{status}</StyledStatusItem>;
