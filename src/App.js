@@ -38,6 +38,9 @@ const theme = {
     purple: '#bd93f9',
     red: '#ff5555',
     yellow: '#f1fa8c'
+  },
+  border: {
+    radius: '30px'
   }
 };
 
