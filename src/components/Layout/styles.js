@@ -1,7 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-
-import Navigation from './Navigation';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -17,13 +14,4 @@ const Main = styled.main`
   overflow-y: scroll;
 `;
 
-const Layout = ({ children }) => {
-  return (
-    <Wrapper>
-      <Navigation />
-      <Main>{children}</Main>
-    </Wrapper>
-  );
-};
-
-export default Layout;
+export { Wrapper, Main }
