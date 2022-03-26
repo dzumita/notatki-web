@@ -8,6 +8,9 @@ const StatusItem = ({ as }) => {
     case 'load':
       status = '🔃 Loading...';
       break;
+    case 'not note':
+      status = '❎ Error! Note not found';
+      break;
   }
 
   return <StyledStatusItem>{status}</StyledStatusItem>;
