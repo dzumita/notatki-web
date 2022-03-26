@@ -16,7 +16,9 @@ const NavList = styled.ul`
   padding: 1em;
   margin: 0;
   list-style: none;
-  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
 `;
 
 export { Nav, NavList };
