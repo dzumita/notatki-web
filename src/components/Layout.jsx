@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const Main = styled.main`
   background: ${props => props.theme.colors.background};
   color: ${props => props.theme.colors.foreground};
-  padding: 2em;
+  padding: 2.2em 2em;
   flex: 1;
   overflow-y: scroll;
 `;

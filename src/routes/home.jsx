@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useQuery, gql } from '@apollo/client';
 
 import Button from '../components/Button';
-import NoteFeed from '../components/NoteFeed';
+import Note from '../components/Note';
 
 const GET_NOTES = gql`
   query NoteFeed($cursor: String) {
@@ -41,7 +41,9 @@ const Home = () => {
 
   return (
     <Wrapper>
-      <NoteFeed notes={data.noteFeed.notes} />
+      {data.noteFeed.notes.map(note => (
+        <Note note={note} key={note.id}/>
+      ))}
       
       {data.noteFeed.hasNextPage && (
         <Button
