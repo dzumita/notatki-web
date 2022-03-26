@@ -1,27 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 
-import Button from './Button';
+import Button from '../Button';
 
-const Wrapper = styled.div`
-  border: 1px solid #f5f4f0;
-  max-width: 500px;
-  padding: 1em;
-  margin: 0 auto;
-`;
-
-const Form = styled.form`
-  label,
-  input {
-    display: block;
-    line-height: 2em;
-  }
-
-  input {
-    width: 100%;
-    margin-bottom: 1em;
-  }
-`;
+import { Wrapper, Form, Input } from './styles';
 
 const UserForm = props => {
   const [values, setValues] = useState();
@@ -47,9 +28,9 @@ const UserForm = props => {
         }}
       >
         {props.formType === 'signup' && (
-          <React.Fragment>
+          <div>
             <label htmlFor="username">Username:</label>
-            <input
+            <Input
               required
               type="text"
               id="username"
@@ -57,26 +38,31 @@ const UserForm = props => {
               placeholder="username"
               onChange={onChange}
             />
-          </React.Fragment>
+          </div>
         )}
-        <label htmlFor="email">Email:</label>
-        <input
-          required
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
-          onChange={onChange}
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          required
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Password"
-          onChange={onChange}
-        />
+        <div>
+          <label htmlFor="email">Email:</label>
+          <Input
+            required
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            onChange={onChange}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="password">Password:</label>
+          <Input
+            required
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            onChange={onChange}
+          />
+        </div>
         <Button type="submit">Submit</Button>
       </Form>
     </Wrapper>
