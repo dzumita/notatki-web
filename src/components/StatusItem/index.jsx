@@ -14,6 +14,9 @@ const StatusItem = ({ as }) => {
     case 'error sign in':
       status = '❎ Error signing in!';
       break;
+    case 'error create acc':
+      status = '❎ Error creating an account!';
+      break;
   }
 
   return <StyledStatusItem>{status}</StyledStatusItem>;
