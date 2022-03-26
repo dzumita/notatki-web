@@ -29,7 +29,7 @@ export default createGlobalStyle`
     &:hover {
       border: ${props => props.theme.colors.purple} 1px solid;
       border-radius: ${props => props.theme.border.radius};
-      padding: 0 0.3em;
+      padding: 0.1em 0.4em;
     }
   }
 
