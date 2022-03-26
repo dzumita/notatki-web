@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-  background: ${props => props.theme.colors.background};
+  background: transparent;
   padding: 1em;
   padding-top: 2.2em;
   flex-basis: content-fit;

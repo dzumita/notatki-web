@@ -13,6 +13,8 @@ const StyledIconLink = styled(Link)`
 
   &:hover,
   &:focus {
+    border: none !important;
+    padding: 0 !important;
     opacity: 0.7;
   }
 `;

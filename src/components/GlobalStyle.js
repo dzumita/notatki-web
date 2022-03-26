@@ -11,6 +11,7 @@ export default createGlobalStyle`
   body,
   html, 
   #root {
+    background-color: ${props => props.theme.colors.background};
     height: 100%;
     width: 100%;
     margin: 0;
@@ -19,18 +20,27 @@ export default createGlobalStyle`
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
       Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    background-color: #fff;
     line-height: 1.4;
   }
 
-  a:link,
-  a:visited {
-    color: #0077cc;
+  a:link {
+    color: ${props => props.theme.colors.purple};
+
+    &:hover {
+      border: ${props => props.theme.colors.purple} 1px solid;
+      border-radius: ${props => props.theme.border.radius};
+      padding: 0 0.3em;
+    }
   }
 
-  a:hover,
-  a:focus {
-    color: #004499;
+  a:visited {
+    color: ${props => props.theme.colors.pink};
+
+    &:hover {
+      border: ${props => props.theme.colors.pink} 2px solid;
+      border-radius: ${props => props.theme.border.radius};
+      padding: 0 0.3em;
+    }
   }
 
   code,
@@ -38,5 +48,19 @@ export default createGlobalStyle`
     max-width: 100%;
     overflow: auto;
     margin: 0 auto;
+    color: ${props => props.theme.colors.comment};
+  }
+
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${props => props.theme.colors.currentLine};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background:  ${props => props.theme.colors.purple};
+    border-radius: ${props => props.theme.border.radius};
   }
 `;
