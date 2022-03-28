@@ -20,6 +20,9 @@ const StatusItem = ({ as }) => {
     case 'error save note':
       status = '❎ Error saving the note!';
       break;
+    case 'not access':
+      status = '🔒 You do not have access to edit this note!';
+      break;
   }
 
   return <StyledStatusItem>{status}</StyledStatusItem>;

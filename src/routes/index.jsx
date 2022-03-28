@@ -11,6 +11,7 @@ import Note from './note';
 import SignUp from './signup';
 import SignIn from './signin';
 import NewNote from './new';
+import EditNote from './edit';
 
 const Routes = () => (
   <Router>
@@ -22,6 +23,7 @@ const Routes = () => (
       <Route path="/signup" component={SignUp} />
       <Route path="/signin" component={SignIn} />
       <PrivateRoute path="/new" component={NewNote} />
+      <PrivateRoute path="/edit/:id" component={EditNote} />
     </Layout>
   </Router>
 );
