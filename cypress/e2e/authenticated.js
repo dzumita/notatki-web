@@ -19,7 +19,7 @@ describe('an unauthenticated user', () => {
         .window()
         .contains('Pizza');
 
-      cy.visit('/mynotes')
+      cy.visit('/notes')
         .wait(500)
         .queryByText('Delete Note')
         .click()
@@ -38,7 +38,7 @@ describe('an unauthenticated user', () => {
         .queryByText('Save')
         .click();
 
-      cy.visit('/mynotes')
+      cy.visit('/notes')
         .wait(500)
         .queryByText('Edit')
         .click()

@@ -5,6 +5,8 @@ import IconLink from '../IconLink';
 import { TOGGLE_FAVORITE } from '../../gql/mutations';
 import { GET_MY_FAVORITES } from '../../gql/queries';
 
+import { Wrapper, Count } from './styles';
+
 const FavoriteNote = props => {
   const [count, setCount] = useState(props.favoriteCount);
   const [favorited, setFavorited] = useState(
@@ -19,7 +21,7 @@ const FavoriteNote = props => {
   });
 
   return (
-    <React.Fragment>
+    <Wrapper>
       {favorited ? (
         <IconLink
           onClick={() => {
@@ -41,8 +43,8 @@ const FavoriteNote = props => {
           data-cy="favorite"
         />
       )}
-      : {count}
-    </React.Fragment>
+      <Count>: {count}</Count>
+    </Wrapper>
   );
 };
 
