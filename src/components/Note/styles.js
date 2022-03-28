@@ -5,6 +5,7 @@ const StyledNote = styled.article`
   border-radius: ${props => props.theme.border.radius};
   padding: 1.2em;
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
 
   a:link {

@@ -28,6 +28,9 @@ const Navigation = props => {
           <IconLink icon="📓" to="/notes" alt="Notes" />
         </li>
         <li>
+          <IconLink icon="📃" to="/new" alt="New Note" />
+        </li>
+        <li>
           <IconLink icon="🌟" to="/favorites" alt="Favorites" />
         </li>
       </NavList>

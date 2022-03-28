@@ -10,6 +10,7 @@ import Favorites from './favorites';
 import Note from './note';
 import SignUp from './signup';
 import SignIn from './signin';
+import NewNote from './new';
 
 const Routes = () => (
   <Router>
@@ -20,6 +21,7 @@ const Routes = () => (
       <Route path="/note/:id" component={Note} />
       <Route path="/signup" component={SignUp} />
       <Route path="/signin" component={SignIn} />
+      <PrivateRoute path="/new" component={NewNote} />
     </Layout>
   </Router>
 );
